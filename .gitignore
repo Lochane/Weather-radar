@@ -1,10 +1,16 @@
-/data-engineering-zoomcamp
 /data
+.pytest_cache/
+.venv/
+.DS_Store
+.idea/
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
+
+
 
 # C extensions
 *.so

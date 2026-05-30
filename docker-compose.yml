@@ -1,0 +1,10 @@
+include:
+  - path:
+    - services/postgres/docker-compose.yml
+    - services/minio/docker-compose.yml
+    - services/adminer/docker-compose.yml
+    - services/api/docker-compose.yml
+
+networks:
+  backend:
+    driver: bridge

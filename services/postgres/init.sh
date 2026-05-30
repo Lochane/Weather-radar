@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Exit on error
+set -e
+
+PSQL_POSTGRES="psql -v ON_ERROR_STOP=1 -U $POSTGRES_USER -d postgres -c"
+PSQL_TARGET="psql -v ON_ERROR_STOP=1 -U $POSTGRES_USER -d $POSTGRES_DB -c"
+
+# Ensure target database exists (safe to run multiple times).
+${PSQL_POSTGRES} "SELECT 'CREATE DATABASE \"$POSTGRES_DB\"' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = '$POSTGRES_DB')\\gexec"
+
+${PSQL_TARGET} "CREATE EXTENSION IF NOT EXISTS postgis;"
+${PSQL_TARGET} "CREATE EXTENSION IF NOT EXISTS postgis_raster;"
+${PSQL_TARGET} "CREATE EXTENSION IF NOT EXISTS pgcrypto;"
+
+${PSQL_TARGET} "CREATE SCHEMA IF NOT EXISTS raw;"
+${PSQL_TARGET} "CREATE SCHEMA IF NOT EXISTS staging;"
+${PSQL_TARGET} "CREATE SCHEMA IF NOT EXISTS mart;"
+
+${PSQL_TARGET} "GRANT ALL ON SCHEMA raw, staging, mart TO CURRENT_USER;"

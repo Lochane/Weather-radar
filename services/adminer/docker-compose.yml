@@ -1,0 +1,13 @@
+name: adminer
+
+services:
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - "8081:8080"
+    depends_on:
+      postgres:
+        condition: 'service_healthy'
+    networks:
+      - backend
