@@ -1,5 +1,5 @@
 def main():
-    print("Hello from air-quality!")
+    print("Hello from radar!")
 
 
 if __name__ == "__main__":
