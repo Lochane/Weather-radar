@@ -27,6 +27,5 @@ clean:
 # Nettoyage complet (conteneurs, images, volumes)
 fclean:
 			$(DOCKER_COMPOSE) down --rmi all --volumes --remove-orphans
-			sudo rm -rf postgres_data
 # Pour relancer tout à zéro
 re: fclean all
