@@ -12,5 +12,5 @@ def to_rows(payload: dict) -> list[dict]:
 
 	rows = []
 	for time, temp, preci, wind in zip(times, temperatures, precipitations, wind_speed_10m):
-		rows.append({'latitude': latitude, 'longitude': longitude, 'measured_at': dt.datetime.fromisoformat(time).replace(tzinfo=dt.timezone.utc), 'temperature': temp, 'precipitation': preci, 'wind_speed_10m': wind})
+		rows.append({'latitude': latitude, 'longitude': longitude, 'measured_at': dt.datetime.fromisoformat(time).replace(tzinfo=dt.timezone.utc), 'temperature_2m': temp, 'precipitation': preci, 'wind_speed_10m': wind})
 	return rows
