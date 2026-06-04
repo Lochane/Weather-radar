@@ -1,4 +1,4 @@
-name: postgis
+name: postgres
 
 services:
   postgres:

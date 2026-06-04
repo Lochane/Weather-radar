@@ -4,6 +4,7 @@ include:
     - services/minio/docker-compose.yml
     - services/adminer/docker-compose.yml
     - services/api/docker-compose.yml
+    - services/extractor-openmeteo/docker-compose.yml
 
 networks:
   backend:

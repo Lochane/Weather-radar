@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS raw.openmeteo_measurements (
 	latitude		DOUBLE PRECISION,
 	longitude		DOUBLE PRECISION,
 	measured_at		TIMESTAMPTZ NOT NULL,
-	temperture_2m	DOUBLE PRECISION,
+	temperature_2m	DOUBLE PRECISION,
 	precipitation	DOUBLE PRECISION,
 	wind_speed_10m	DOUBLE PRECISION,
 	source			TEXT		NOT NULL DEFAULT 'open-meteo',
