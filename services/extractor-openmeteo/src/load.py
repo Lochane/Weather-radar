@@ -11,3 +11,6 @@ def upsert_rows(rows: list[dict], run_id):
 				ON CONFLICT (latitude, longitude, measured_at) DO UPDATE SET temperature_2m=excluded.temperature_2m, precipitation=excluded.precipitation, wind_speed_10m=excluded.wind_speed_10m, run_id=excluded.run_id, ingested_at=now()
 				""", (row['latitude'], row['longitude'], row['measured_at'], row['temperature_2m'], row['precipitation'], row['wind_speed_10m'], run_id))
 		conn.commit()
+	
+	cur.close()
+	conn.close()
