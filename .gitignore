@@ -5,6 +5,9 @@
 .idea/
 .vscode/
 logs*
+test*
+bashrc/
+psqlrc/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
