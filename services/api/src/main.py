@@ -60,7 +60,7 @@ async def health():
 
 
 @app.get("/weather/point")
-async def weather_point(latitude: float, longitude: float, time: datetime | None = None):
+async def weather_point(latitude: float, longitude: float):
 	conn = get_conn()
 	cur = conn.cursor()
 	try:
@@ -69,12 +69,13 @@ async def weather_point(latitude: float, longitude: float, time: datetime | None
 			FROM raw.openmeteo_measurements
 			WHERE latitude = %s
 			AND longitude = %s
+			LIMIT 10
 		"""
 		params = [latitude, longitude]
 
-		if time is not None:
-			query += " AND measured_at = %s"
-			params.append(time)
+		# if time is not None:
+		# 	query += " AND measured_at = %s"
+		# 	params.append(time)
 
 		cur.execute(query, params)
 		rows = cur.fetchall()

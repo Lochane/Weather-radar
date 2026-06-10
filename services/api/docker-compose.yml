@@ -10,7 +10,7 @@ services:
     volumes:
       - ${PWD}/services/api/src:/app/src
     environment:
-      - DATABASE_URL=$DATABASE_URL
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
       - MINIO_ENDPOINT=$MINIO_ENDPOINT
       - MINIO_ROOT_USER=$MINIO_ROOT_USER
       - MINIO_ROOT_PASSWORD=$MINIO_ROOT_PASSWORD
