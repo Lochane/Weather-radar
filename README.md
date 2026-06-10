@@ -1,6 +1,6 @@
 # Weather Radar 🛰️
 
-> ⚠️ Work in progress — personal data engineering project, under construction.
+> ⚠️ Work in progress - personal data engineering project, under construction.
 
 A web map of Europe where you toggle between environmental layers (temperature, precipitation, clouds, satellite imagery ) to display whichever view you want, in the spirit of Windy / Weather Channel. It aggregates several geospatial data sources and serves them through a unified API to a map frontend.
 
@@ -34,5 +34,5 @@ make all
 
 ```bash
 curl http://localhost:8000/health
-curl "http://localhost:8000/weather/point?lat=48.85&lon=2.35"
+curl 'http://localhost:8000/weather/point?latitude=48.85&longitude=2.35'
 ```
